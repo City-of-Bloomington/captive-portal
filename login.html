@@ -1,83 +1,53 @@
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Pragma" content="no-cache">
-<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
-<title>Welcome to Your_Company_Name_Here</title>
-<script>
-
-function submitAction(){
-      var link = document.location.href;
-      var searchString = "redirect=";
-      var equalIndex = link.indexOf(searchString);
-      var redirectUrl = "";
-
-      if (document.forms[0].action == "") {
-      var url = window.location.href;
-      var args = new Object();
-      var query = location.search.substring(1);
-      var pairs = query.split("&");
-          for(var i=0;i<pairs.length;i++){
-              var pos = pairs[i].indexOf('=');
-              if(pos == -1) continue;
-              var argname = pairs[i].substring(0,pos);
-              var value = pairs[i].substring(pos+1);
-              args[argname] = unescape(value);
-          }
-          document.forms[0].action = args.switch_url;       
-      }       
-      if(equalIndex >= 0) {
-            equalIndex += searchString.length;
-            redirectUrl = "";
-            redirectUrl += link.substring(equalIndex);
-      }
-      if(redirectUrl.length > 255)
-      redirectUrl = redirectUrl.substring(0,255);
-      document.forms[0].redirect_url.value = redirectUrl;
-      document.forms[0].buttonClicked.value = 4;
-      document.forms[0].submit();
-}
-
-function reject()
-{
-	alert("You will not be able to access the system!");
-}
-
-
-function loadAction(){
-      var url = window.location.href;
-      var args = new Object();
-      var query = location.search.substring(1);
-      var pairs = query.split("&");
-      for(var i=0;i<pairs.length;i++){
-          var pos = pairs[i].indexOf('=');
-          if(pos == -1) continue;
-          var argname = pairs[i].substring(0,pos);
-          var value = pairs[i].substring(pos+1);
-          args[argname] = unescape(value);
-      }
-      document.forms[0].action = args.switch_url;
-
-}
-
-</script>
+    <meta http-equiv="Pragma" content="no-cache">
+    <link rel="stylesheet" type="text/css" href="./login.css" />
+    <script type="text/javascript" src="./login.js"></script>
+    <title></title>
 </head>
 
-<body bgcolor=#FFEECC topmargin="50" marginheight="50" onload="loadAction();"> <form method="post"> <input TYPE="hidden" NAME="buttonClicked" SIZE="16" MAXLENGTH="15" value="0"> <input TYPE="hidden" NAME="redirect_url" SIZE="255" MAXLENGTH="255" VALUE=""> <input TYPE="hidden" NAME="err_flag" SIZE="16" MAXLENGTH="15" value="0">
+<body>
+    <header>
+        <h1>City of Bloomington, Indiana</h1>
+        <h2>Public Wi-Fi</h2>
+    </header>
+	<main>
+        <dl>
+            <dt>Accessing Company Public Network From Your Wireless Device</dt>
+            <dd><p>The Company provides Internet access points at no charge in selected areas for guests with portable computers or devices capable of receiving wireless signals. You will be able to access the Internet from your wireless device when sitting within range of an access point. Guests are expected to use the wireless access in a legal and responsible manner. By using this wireless access network, the user acknowledges that he/she is subject to, and agrees to abide by all laws, and all state and federal rules and regulations applicable to Internet use.</p></dd>
 
-<table border="0" cellspacing="0" cellpadding="0">
+            <dt>Terms and Conditions of Use</dt>
+            <dd><p>Guests will need a notebook/laptop computer or other device equipped with a wireless card that supports the WiFi standard.</p>
+                <p>The Company assumes no responsibility for the safety of equipment.</p>
+            </dd>
 
-<h1 align=center><font color="#336699">Welcome to Your_Company_Here</font></h1>
-<iframe src="./aup.html" width="800" height="500" scrolling="auto"></iframe>
-<p><input type="button" name="Submit" value="Accept" class="button" onclick="submitAction();"></p>
-<p><input type="button" name="Reject" value="Reject" class="button" onclick="reject();"></p>
-<p>Email Address<input type="text" name="email" size="45" maxlength="63" value=""></p>
-<IMG SRC="./yourlogo.jpg">
-<p>For assistance, please contact the lobby administrator at 555-1212 (lobby.admin@company.com)</p>
-</td>
-</tr>
-</table>
-</div>
+            <dt>Security Considerations</dt>
+            <dd><p>Wireless access is by nature an insecure medium. As with most guest wireless networks, any information being sent or received over the Company wireless network could potentially be intercepted by another wireless user. Cautious and informed wireless users should not transmit their credit card information, passwords and any other sensitive personal information while using a wireless "hot spot".</p>
+                <p>Anyone using the Company wireless network is forewarned that there can be no expectation of privacy when using the wireless network. Users assume all associated risks and agree to hold harmless the Company and its employees for any personal information (e.g. credit card) that is compromised, or for any damage caused to users' hardware or software due to electric surges, security issues or consequences caused by viruses or hacking. All wireless access users should have up-to-date virus protection on their personal laptop computers or wireless devices, as well as staying up-to-date with applicable OS security patches.</p>
+            </dd>
 
-</form>
+            <dt>Disclaimer</dt>
+            <dd><p>The Company is providing wireless connectivity in this facility as a guest service and offers no guarantees that any use of the wireless connection is in any way secure, or that any privacy can be protected when using this wireless connection. Use of this wireless connection is entirely at the risk of the user, and the Company is not responsible for any loss of any information that may arise from the use of the wireless connection, or for any loss, injury, or damages resulting from the use of the wireless connection.</p></dd>
+
+            <dt>Agreement</dt>
+            <dd><p>By clicking "Accept" below, you are entering into a binding agreement.</p></dd>
+        </dl>
+
+        <form method="post">
+            <fieldset>
+                <input name="buttonClicked" type="hidden" value="4" />
+                <input name="redirect_url"  type="hidden" value=""  />
+                <input name="err_flag"      type="hidden" value=""  />
+
+                <div class="required">
+                    <label for="email">Email Address</label>
+                    <input name="email" id="email" />
+                </div>
+
+                <button type="submit">Accept</button>
+            </fieldset>
+        </form>
+	</main>
 </body>
 </html>
