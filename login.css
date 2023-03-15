@@ -1,1 +1,22 @@
- 
+body {
+    background-color: #fff;
+    margin: 0;
+}
+
+body > header {
+    border-top:    4px solid #182d5a;
+    border-bottom: 4px solid #182d5a;
+    background: url('cob-logo-horizontal.svg') no-repeat top 4px left 4px;
+    background-size: 233px 55px;
+}
+
+h1 {
+    text-align: center;
+
+}
+main {
+    padding: 4px;
+}
+dt {
+    font-weight: bold;
+}
